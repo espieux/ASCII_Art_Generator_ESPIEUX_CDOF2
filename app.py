@@ -37,8 +37,7 @@ def generate_ascii_art(text):
     '7': ['77777', '   7 ', '  7  ', ' 7   ', '7    '],
     '8': [' 888 ', '8   8', ' 888 ', '8   8', ' 888 '],
     '9': [' 999 ', '9   9', ' 9999', '   9 ', ' 999 ']
- }
-
+    }
 
     # Convert text to ASCII Art
     result = ['' for _ in range(5)]  # 5 lines high ASCII Art
@@ -52,9 +51,58 @@ def generate_ascii_art(text):
 
     return '\n'.join(result)
 
+def generate_ascii_art2(text):
+    ascii_art_dict={
+        'A':[ 
+            "  ,---.   ",   
+            " /  O  \  ",
+            "|  .-.  | ",
+            "|  | |  | ",
+            "`--' `--' ",
+        ],
+        'B':[
+            ",-----.   ",
+            "|  |) /_  ",
+            "|  .-.  \ ",
+            "|  '--' / ",
+            "`------'  ",
+        ],
+        'C':[
+            " ,-----. ",
+            "'  .--./ ",
+            "|  |     ",
+            "'  '--'\ ",
+            " `-----' ",
+        ],
+        'D':[
+            ",------.   ",
+            "|  .-.  \  ",
+            "|  |  \  : ",
+            "|  '--'  / ",
+            "`-------'  ",
+        ]
+
+    }
+
+    # Convert text to ASCII Art
+    result = ['' for _ in range(5)]  # 5 lines high ASCII Art
+    for char in text.upper():
+        if char in ascii_art_dict:
+            for i in range(5):
+                result[i] += ascii_art_dict[char][i] + '  '
+        else:
+            for i in range(5):
+                result[i] += '     '  # Space for unrecognized characters
+
+    return '\n'.join(result)
+
+
 def main():
-    text = input("Enter a text: ")
-    ascii_art = generate_ascii_art(text)
+    choice = input("Choose a function: \n1 - regular ascii art\n2 - bubble ascii art\n\n1 or 2? : ")
+    text = input("\nEnter a text: ")
+    if(choice=='1'):ascii_art = generate_ascii_art(text)
+    elif(choice=='2'):ascii_art = generate_ascii_art2(text)
+    
     print(ascii_art)
 
 if __name__ == '__main__':
