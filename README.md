@@ -13,7 +13,8 @@ Clone or download the project from the repository.
 Run the Script:
 Navigate to the project directory in your terminal or command prompt.
 Run the script using Python:
-python app.py
+
+    python app.py
 
 Follow the Prompts:
 Enter the text you wish to convert to ASCII art when prompted.
